@@ -1,7 +1,13 @@
 
+//article flip 
+TweenMax.staggerFrom(".article", 1, {rotation:360, scale:1, delay:0.30}, 0.8) 
+
+
 const toggleMenu = () => {
   // Toggle the "menu--open" class on your menu refence.
   menu.classList.toggle('menu--open'); 
+  TweenMax.to(".menu", 0.50, { width: "190px", opacity: '1' }),
+    TweenMax.to(".menu ul li", 0.5, { right: 30, delay: 1.5 })
 }
 
 // Start Here: Create a reference to the ".menu" class

@@ -1,15 +1,19 @@
 // Because classes are not hoisted you will need to start your code at the bottom of the page.  Look for the comment "START HERE"
 
 class Article {
-  constructor(domElement) {
-    // assign this.domElement to the passed in domElement
-    this.domElement = domElement;
+  constructor(domElement) { //domElement = article "semantics"
+    
+  // assign this.domElement to the passed in domElement
+    this.domElement = domElement; //referencing single article
     // console.log(this.domElement);
+    
     // create a reference to the ".expandButton" class. 
     this.expandButton = this.domElement.querySelector('.expandButton');
     // console.log(this.expandButton);
+    
     // Using your expandButton reference, update the text on your expandButton to say "expand"
     this.expandButton.innerText = 'expand'
+   
     // Set a click handler on the expandButton reference, calling the expandArticle method.
     this.expandButton.addEventListener('click',this.expandArticle.bind(this));
   }
@@ -28,8 +32,14 @@ this.domElement.classList.toggle('article-open');
 
 */
 
+//get the original DOM elements. Grabbled each article off its class name x4
 let articles = document.querySelectorAll('.article');
 
-articles.forEach(function(element){
-  return new Article (element);          
+//return a newly constructed DOM element, returning back a smarter Article. Used method from our nodelist
+//...current value in our forEach method is arbitrary--i used article representing each individual article coming through.
+
+
+
+articles.forEach(function(article){
+  return new Article (article);          
 });
